@@ -1,0 +1,27 @@
+<% if current_user %>
+  <h1>User Profile</h1>
+  
+  <%= link_to "My Products", products_path %>
+  <p>
+    <strong>Name:</strong>
+    <%= current_user.login %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= current_user.email %>
+  </p>
+
+  <p>
+    <strong>Storenvy UID:</strong>
+    <%= current_user.storenvy_id %>
+  </p>
+  <p><%= link_to "Log out", logout_path %></p>
+<% else %>
+  <h1>Sign In</h1>
+
+  <div class="auth_providers">
+    <a href="/auth/storenvy" class="auth_provider">
+      Sign in with Storenvy
+    </a>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>My Products</h1>
+<h3><%= link_to @store[:name], @store["url"] %></h3>
+<%= image_tag(@store[:avatar]) %>
+<%= button_to "New Product", new_product_path, method: :get %>
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr><th>Product Name</th><th>Price</th><th>File</th></tr>
+  <%- @products.each do |product| -%>
+  <tr><td><%= product[:name] %></td><td>$<%= product[:price] %></td><td><%= link_to "Create Download", new_product_path(:product_id => product[:id]) %></td></tr>
+  <%- end -%>
+</table>
